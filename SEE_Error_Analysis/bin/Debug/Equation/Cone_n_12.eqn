@@ -1,0 +1,4 @@
+INORDER = i_6_  i_0_  ;
+	OUTORDER = n_12;
+	n_12 = !(n_5 * i_0_);	n_5 = !i_6_;
+

@@ -1,0 +1,68 @@
+﻿Codes I wrote and I may use it in the future:
+ struct InputVectorErrors
+        {
+            public int InputVector;
+            public int BackConeErrors;
+            public int NumOfProgatedErrors;
+
+
+        }
+
+        List<InputVectorErrors> NodesInputVectorErrors;
+
+
+		
+
+        //--------------------------------------------------------------------------------------------
+        //-------------------------------------------------
+        //------------This functions are related to the Input Vector Errors sturcture which we use to analyze the input vectors, in which, we want to determine which vecotors can progagate errors from the
+        //----------- back cone (back netlists) to the primary output 
+        public void AddTestVectorErrors(int Input_Vector, int Back_Cone_Errors, int Num_of_Progated_Errors)
+        {
+            
+            // Add new Entery if there is no Entery of this Input Vector, Otherwise Add the new 
+            InputVectorErrors NewEntery = new InputVectorErrors();
+
+            NewEntery.InputVector = Input_Vector;
+            NewEntery.BackConeErrors = Back_Cone_Errors;
+            NewEntery.NumOfProgatedErrors = Num_of_Progated_Errors;
+
+            this.NodesInputVectorErrors.Add(NewEntery);
+
+
+
+        }
+        //This function return the number of input vectors which successfully propagate Errors to Primary outputs
+        public int GetNumberofInputVectors()
+        {
+            return this.NodesInputVectorErrors.Count;
+        }
+
+        public int GetBackConeErrors(int Input_Vector)
+        {
+            for (int i = 0; i < this.NodesInputVectorErrors.Count; i++)
+                if (this.NodesInputVectorErrors[i].InputVector == Input_Vector)
+                    return this.NodesInputVectorErrors[i].BackConeErrors;
+
+            return -1;
+
+
+        }
+
+        public int GetPropagatedErrors(int Input_Vector)
+        {
+            for (int i = 0; i < this.NodesInputVectorErrors.Count; i++)
+                if (this.NodesInputVectorErrors[i].InputVector == Input_Vector)
+                    return this.NodesInputVectorErrors[i].NumOfProgatedErrors;
+
+            return -1;
+
+
+        }
+
+        public void ClearTestVectorErrors()
+        {
+            this.NodesInputVectorErrors.Clear();
+        }
+
+        //-----------------------------------************************************************************************

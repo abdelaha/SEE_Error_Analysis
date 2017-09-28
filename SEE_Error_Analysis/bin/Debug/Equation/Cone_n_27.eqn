@@ -1,0 +1,4 @@
+INORDER = i_1_  ;
+	OUTORDER = n_27;
+	n_27 = !i_1_;
+

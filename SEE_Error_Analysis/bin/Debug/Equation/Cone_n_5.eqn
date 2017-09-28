@@ -1,0 +1,4 @@
+INORDER = i_6_  ;
+	OUTORDER = n_5;
+	n_5 = !i_6_;
+

@@ -1,0 +1,4 @@
+INORDER = i_7_  ;
+	OUTORDER = n_17;
+	n_17 = !i_7_;
+

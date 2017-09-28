@@ -1,0 +1,46 @@
+﻿Written By: Hamzah A. Abdelaziz
+Date: 12/17/2012
+
+
+
+
+This program calculate a three metrics of each netlist of the given circuit.
+1- The precentage of error that appear in this netlist over the whole error occurs in the circuit. 
+2- The precentage of error that appear in the primary output over the errors appear in the netlist.
+3- The number of netlist prior this netlist.
+4- Number of errors that happen at this netlist and propagate successfully to the primary output.
+5- Number of transitions that can occur at this netlist( I mean by transition: One to Zero or Zero to one without any failure in the circuit)
+
+
+
+
+The program input is a verilog file that comes from synthesis tools, plase note that, it shouldn't contains any registers (purly combination circuit) and dosen't include any "reg".
+Furthermore, this program is wirtten escpically for a certain digital libarary that I used in the synposis synthesis tool.
+
+
+Some Specific rule you have to follow:
+1- Ordering of gate inputs in Verilog and Digital Libary
+ // Get the binary values of Netlists which are connected to the inputs of the current gate (They will be returned ordered as they written in Verilog)
+                //Please, make sure that the Digital Library follow the same order.
+
+
+
+
+
+
+
+
+
+
+Comments and Explanation:
+1- propagated Errors to Outputs
+  This is the propagted Errors to primary output which has been injected in the Target Netlist itself.
+
+2- propagated Errors to Netlists
+  This is the Propagated Errors to the Target Netlist from the Back Cone.
+  
+Note: the propagated Errors from BackCone can be progated to the primary output or not. Despite that the sources of erros in the metecs 1 do not make different, Metercs 1 still can not determine how many errors from back cone can propagate 
+to the primary outputs thorough the target netlist. This is why we use InputVectorErrors struct to determine this issue.
+
+
+

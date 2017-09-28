@@ -1,0 +1,3 @@
+﻿This version supports the the ABC synthesis tool after the expiration of Synopsys DC tool.
+
+

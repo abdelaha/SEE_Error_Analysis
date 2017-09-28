@@ -1,0 +1,4 @@
+INORDER = i_1_  i_2_  ;
+	OUTORDER = n_25;
+	n_25 = !(i_1_ * i_2_);
+
